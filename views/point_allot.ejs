@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PMS</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+   <script>
+       function empty() {
+            var x;
+            x = document.getElementById("roll-input").value;
+            if (x == "") {
+                //alert("Please insert empty value");
+                return false;
+            };
+        }
+   </script>
+
+   <style>
+       select{
+           width:100%;
+           height: 35px;
+           border:1px solid grey;
+           box-shadow: 1px 1px 1px 1px grey;
+           /* border-radius: 7%; */
+       }
+   </style>
+    
+</head>
+<body>
+    <div class="container col-sm-12" id="mainform">
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                                                           
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Points Allocation</div>
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px"><a href="/home/hr">Back to HR Dashboard</a></div>
+                    </div> 
+                    <div class="panel-body" >
+                        <form class="form-horizontal" role="form" method="post" action="/update/<%= data.results.id %>"> 
+                            
+                            <!-- <hidden name="approveId" value=''></hidden>    -->
+                                <div class="form-group">
+                                    <label for="emp_name" class="col-md-3 control-label">Employee Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="emp_name" value="<%=data.results.fullname%>" placeholder="First Name" id="roll-input" autocomplete="off" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="attendance" class="col-md-3 control-label">Attendance</label>
+                                    <div class="col-md-9">
+                                        <select name="attendance">
+                                            <option disabled selected value><%=data.results.attendance%></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="late_coming" class="col-md-3 control-label">Late Coming</label>
+                                    <div class="col-md-9">
+                                        <select name="late_coming">
+                                            <option disabled selected value><%=data.results.late_coming%></option>
+                                            <option value="1">-5</option>
+                                            <option value="2">-4</option>
+                                            <option value="3">-3</option>
+                                            <option value="4">-2</option>
+                                            <option value="5">-1</option>
+                                            <option value="6">0</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reason" class="col-md-3 control-label">Reason</label>
+                                    <div class="col-md-9">
+                                        <textarea type="text" class="form-control" name="reason" placeholder="Reason" autocomplete="off">
+                                            <%=data.results.reason%>
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="behaviour" class="col-md-3 control-label">behaviour</label>
+                                    <div class="col-md-9">
+                                        <select name="behaviour">
+                                            <option disabled selected value><%=data.results.behaviour%></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="work" class="col-md-3 control-label">Work</label>
+                                    <div class="col-md-9">
+                                        <select name="work">
+                                            <option disabled selected value><%=data.results.work%></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="culture" class="col-md-3 control-label">Culture</label>
+                                    <div class="col-md-9">
+                                        <select name="culture">
+                                            <option disabled selected value><%=data.results.culture%></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+ 
+                                <div class="form-group">
+                                    <!-- Button -->                                       
+                                    <div class="col-md-offset-3 col-md-9">
+                                        
+                                        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Allocate Point</button>
+                                        
+                                    </div>
+                                </div>   
+                            </form>
+                         </div>
+                    </div>  
+         </div>
+    </div>
+
+</body>
+</html>
+
+

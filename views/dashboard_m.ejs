@@ -1,0 +1,103 @@
+
+<!-- <html lang="en"> -->
+    
+    <style>
+        * {
+        font-family: sans-serif; /* Change your font family */
+        }
+        .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        /* width: 80%; */
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        .content-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        }
+
+        .content-table th,
+        .content-table td {
+        padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+        }
+
+        .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+        }
+
+        .content-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+        }
+
+    </style>
+
+    <%- include('./header'); %>
+    <div class="jumbotron" style="background-color: white;">
+        <h3 style="padding-left: 5%;">Welcome <%=user%></h3>
+        <h5 style="padding-left: 5%;">Designation :  <%=role%></h5>
+        <table class="content-table">
+            <thead>
+              <tr>
+                <th>Emp No</th>
+                <th>Emp Name</th>
+                <th>Alloted Points for Attendance</th>
+                <th>Alloted Points for Late Coming</th>
+                <th>Reason of Points Alloted</th>
+                <th>Alloted Points for Behaviour</th>
+                <th>Alloted Points for Work</th>
+                <th>Alloted Points for Culture</th>
+                <!-- <th>Point Allocation</th> -->
+              </tr>
+            </thead>
+            <%
+            if(userData.data.length!=0){
+            var i=1;
+            userData.data.forEach(function(data){
+            %>
+            <tbody>
+                <tr>
+                    <td><%=i; %></td>
+                    <td><%=data.fullname %></td>
+                    <td><%=data.attendance %></td>
+                    <td><%=data.late_coming %></td>
+                    <td><%=data.reason %></td>
+                    <td><%=data.behaviour %></td>
+                    <td><%=data.work %></td>
+                    <td><%=data.culture %></td>
+                    
+                </tr>
+            
+            <%  i++; }) %>
+            <% } else{ %>
+                <tr>
+                    <td colspan="7">No Data Found</td>
+                </tr>
+            <% } %>
+        </tbody>
+        </table>
+        
+        
+
+    </div>	
+
+<!-- </html> -->
+<%- include('./footer'); %>
+    
+    

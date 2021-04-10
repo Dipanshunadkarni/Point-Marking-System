@@ -1,0 +1,49 @@
+
+<!-- <html lang="en"> -->
+    <style>
+        .card {
+          margin: auto;
+          text-align: center;
+          font-family: arial;
+          /* padding-top: 4%; */
+        }
+        
+        .title {
+          color: grey;
+          font-size: 18px;
+        }
+        
+        </style>
+
+    <%- include('./header'); %>
+    <div class="jumbotron" style="background-color: white;">
+        <h3 style="padding-left: 5%;">Welcome <%=user%></h3>
+        <h5 style="padding-left: 5%;">Designation :  <%=role%></h5>
+        <div class="card">
+            <%
+            if(userData.data.length!=0){
+            userData.data.forEach(function(data){
+            %>
+            <h1><%=data.fullname %></h1>
+            <p class="title"><b>Email ID : </b><%=data.email %></p>
+            <b><h2>Allocated Points By HR</h2></b>
+            <div style="margin: 24px 0;">
+                <p><b>For Attendance : </b><%=data.attendance %></p>
+                <p><b>For Late Coming : </b><%=data.late_coming %></p>
+                <p><b>For Behaviour : </b><%=data.behaviour %></p>
+                <p><b>For Work : </b><%=data.work %></p>
+                <p><b>For Culture : </b><%=data.culture %></p>
+            </div>
+            <% })  %>
+            <% } else{ %>
+                <tr>
+                    <td colspan="7">No Data Found</td>
+                </tr>
+            <% } %>
+          </div>
+    </div>	
+
+<!-- </html> -->
+<%- include('./footer'); %>
+    
+    
