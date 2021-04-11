@@ -93,7 +93,7 @@ exports.signup = async function(req, res){
    // console.log(sql.q)
    db.query(sql, function(err, results){
       userData={data:results}
-      res.render('dashboard_h.ejs', {user:user,role:role,userData:userData});    
+      res.render('dashboard_m.ejs', {user:user,role:role,userData:userData});    
       console.log("Emp----",userData)
    });      
  };
