@@ -5,6 +5,7 @@ const http = require('http')
 const path = require('path')
 var ejs = require('ejs')
 
+const port = process.env.PORT || 8000;
 const session = require('express-session')
 const app = express()
 const mysql = require('mysql')
@@ -21,7 +22,7 @@ connection.connect()
 global.db=connection
 
 //all environment variables
-app.set('port',process.env.PORT || 8080)
+// app.set('port',process.env.PORT || 8080)
 app.set('views',__dirname + '/views')
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended : true}))
@@ -48,4 +49,6 @@ app.get('/home/logout',user.logout)
 app.get('/edit/:userId',user.allot)
 app.post('/update/:userId',user.update)
 
-app.listen(8080)
+app.listen(port,()=>{
+    console.log(`Listening to the port no at ${port}`)
+})
