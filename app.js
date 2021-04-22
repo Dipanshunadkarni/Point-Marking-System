@@ -36,7 +36,7 @@ app.use(session({
 }))
 
 //development
-// app.get('/',routes.index);
+app.get('/',routes.index);
 app.get('/signup',user.signup)
 app.post('/signup',user.signup)
 app.get('/login',routes.index)
