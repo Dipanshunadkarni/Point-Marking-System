@@ -49,6 +49,6 @@ app.get('/home/logout',user.logout)
 app.get('/edit/:userId',user.allot)
 app.post('/update/:userId',user.update)
 
-app.listen(process.env.PORT || port,()=>{
+app.listen(port,()=>{
     console.log(`Listening to the port no at ${port}`)
 })
