@@ -13,6 +13,7 @@ const bodyParser = require('body-parser')
 
 const connection = mysql.createConnection({
     host : 'localhost',
+    port : '3308',
     user : 'root',
     password : '',
     database : 'PMS'
